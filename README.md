@@ -1,7 +1,5 @@
 # Scripts
 
-[TOC]
-
 ## hashing.sh
 
 - Automatic script to calculate hash function (md5, sha1, sha256)
