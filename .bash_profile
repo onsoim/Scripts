@@ -18,7 +18,7 @@ function prompt {
 
 	local	END="\[\e[0m\]"
 
-	# Prompt Settings (default: PS1="\h:\W \u$ "
+	# Prompt Settings (default: PS1="\h:\W \u$ ")
 	#	\d - Current date
 	#	\h - Host name
 	#	\t - Current time
@@ -30,15 +30,24 @@ function prompt {
 }
 prompt
 
-# PYTHON VIRTUALENV SETTINGS
-export WORKON_HOME="~/.virtualenvs"
-export VIRTUALENVWRAPPER_PYTHON="$(which python)"
-source /usr/local/bin/virtualenvwrapper.sh
+# ADD PATH
+PATH=${PATH}:/Volumes/BaseQi/Github/Scripts
+export PATH
 
 # PERSONAL COMMAND
 alias l="ls"
 alias ll="ls -al"
 alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+alias shell="source /Volumes/BaseQi/Github/Scripts/.bash_profile"
 
 alias .hash="sh hashing.sh"
 alias .port="sudo lsof -i TCP:"
+
+# DOCKER COMMAND
+alias apktool="docker run --rm -it -v $(pwd):/apk apktool apktool"
+alias apksign="docker run --rm -it -v $(pwd):/apk motizen-sign sh Sign.sh"
+alias apply_SSG="docker run --rm -it -v /Volumes/BaseQi/Github/apply_SSG:/application -p 80:8080 django python manage.py runserver 0.0.0.0:8080"
+alias boj_python3="docker run --rm -it -v /Volumes/BaseQi/Github/baekjoon:/python3 python3 python3"
+
+# cd path
+alias GITHUB="cd /Volumes/BaseQi/Github"
