@@ -1,3 +1,4 @@
+#!/bin/bash
 
 function prompt {
 	# Define local colors
@@ -28,7 +29,7 @@ function prompt {
 	#	\w = Current working directory with full path
 	#	\# - Command number
 	export PS1="\u:$LIGHT_CYAN\W$END $ "
-}prompt
+}
 
 function set_capture {
 	# remove shadow(margin around window) when take screenshot
@@ -43,6 +44,8 @@ function set_adb {
 	adb connect $nox
 	adb devices
 }
+
+prompt
 
 
 # ADD PATH
@@ -66,7 +69,8 @@ alias .port="sudo lsof -i TCP:"
 # -*- DOCKER COMMAND -*-
 alias apktool="shell && docker run --rm -it -v $(pwd):/apk apktool apktool"
 alias apksign="shell && docker run --rm -it -v $(pwd):/apk motizen-sign sh Sign.sh"
-alias django="shell && docker run --rm -it -v $(pwd):/application -p 80:8080 django python manage.py runserver 0.0.0.0:8080"
+alias django="shell && docker run --rm -it -v $(pwd):/application -p 80:8080 capstone python manage.py runserver 0.0.0.0:8080"
+alias django_test="docker run --rm -it -v $(pwd):/application -p 80:8080 capstone /bin/bash"
 alias dev_python3="shell && docker run --rm -it -v $(pwd):/python3 python3 python3"
 
 
